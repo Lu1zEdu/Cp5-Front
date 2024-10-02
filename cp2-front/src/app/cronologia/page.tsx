@@ -9,7 +9,7 @@ export default function Cronologia() {
     useEffect(() => {
       async function chamadaApi() {
           try {
-            const response = await fetch('http://localhost:3000/api/imagens');
+            const response = await fetch('http://localhost:3000/api/Imagens');
             const jsonData = await response.json();
             // Número aleatório entre 0 e 9
             const numeroAleatorio = (min: number, max: number) => Math.floor(Math.random() * (max - min)) + min;
