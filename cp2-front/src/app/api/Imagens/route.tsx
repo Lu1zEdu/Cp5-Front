@@ -1,5 +1,17 @@
+import { NextResponse } from "next/server";
+
 export async function GET() {
-    const response = await fetch("https://api.nasa.gov/planetary/apod?api_key=kXO8zL2dtbE4EU9Uyv8bMDfrgCb0HbPr6FTJ5KCH&count=1");    
-    const urlImagem = response.url;
-    return urlImagem;
+    try {
+        const response = await fetch("https://api.nasa.gov/planetary/apod?api_key=kXO8zL2dtbE4EU9Uyv8bMDfrgCb0HbPr6FTJ5KCH&count=10");
+
+        if (!response.ok) {
+            throw new Error(`Error fetching data: ${response.statusText}`);
+        }
+
+        const dados = await response.json();
+        return NextResponse.json(dados);
+
+    } catch {
+        console.log("ERROOOOOOOOOOOOOOOOOOOOO")
+    }
 }
