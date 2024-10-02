@@ -7,9 +7,12 @@
         @apply bg-slate-800 flex-col items-center justify-between p-4 rounded-lg shadow-md;   
     }
     .Ps{
-        @apply text-sm; 
+        @apply text-xl mx-12;
     }
     .Hs{
-        @apply text-xl; 
+        @apply text-5xl m-12; 
+    }
+    .Link {
+        @apply text-2xl;
     }
 }

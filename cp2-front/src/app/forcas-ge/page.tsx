@@ -12,8 +12,8 @@ export default function ForcasGE() {
             const response = await fetch('http://localhost:3000/api/imagens');
             const jsonData = await response.json();
             // Número aleatório entre 0 e 9
-            const getRandomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min)) + min;
-            const indice = getRandomInt(0, 9);
+            const numeroAleatorio = (min: number, max: number) => Math.floor(Math.random() * (max - min)) + min;
+            const indice = numeroAleatorio(0, 9);
             setImagem(jsonData[indice]);
           } catch {
               console.log("ERRO");
@@ -29,7 +29,7 @@ export default function ForcasGE() {
         Velikovsky propôs que as forças eletromagnéticas entre planetas poderiam ter desempenhado um papel significativo nos encontros próximos, algo que contraria o modelo puramente gravitacional aceito na física celeste. Ele sugeriu que os cálculos gravitacionais sozinhos não explicavam adequadamente as interações planetárias propostas em suas teorias.
         </p>
         <div >
-          <Image src={typeof(imagem.url) == 'string' ? imagem.url : ""}width={500} height={250}alt={typeof(imagem.explanation) == 'string' ? imagem.explanation : ""}/>
+          <Image className="m-12" src={typeof(imagem.url) == 'string' ? imagem.url : ""}width={500} height={250}alt={typeof(imagem.explanation) == 'string' ? imagem.explanation : ""}/>
           <p className="Ps">{imagem.explanation}</p>
         </div>
        

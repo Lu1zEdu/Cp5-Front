@@ -12,8 +12,8 @@ export default function Cronologia() {
             const response = await fetch('http://localhost:3000/api/imagens');
             const jsonData = await response.json();
             // Número aleatório entre 0 e 9
-            const getRandomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min)) + min;
-            const indice = getRandomInt(0, 9);
+            const numeroAleatorio = (min: number, max: number) => Math.floor(Math.random() * (max - min)) + min;
+            const indice = numeroAleatorio(0, 9);
             setImagem(jsonData[indice]);
           } catch {
               console.log("ERRO nossa api");
@@ -30,7 +30,7 @@ export default function Cronologia() {
             Ele questionou a cronologia aceita de eventos históricos e astronômicos, propondo que certos eventos catastróficos ocorreram em tempos muito mais recentes do que a ciência convencional sugere. A ideia de que planetas poderiam ter mudado de órbita tão recentemente desafiava as teorias astronômicas da época, que se baseavam em cálculos de órbitas estáveis por milhões de anos.
         </p>
         <div >
-          <Image src={typeof(imagem.url) == 'string' ? imagem.url : ""} width={500} height={250}alt={typeof(imagem.explanation) == 'string' ? imagem.explanation : ""}/>
+          <Image className="m-12" src={typeof(imagem.url) == 'string' ? imagem.url : ""} width={500} height={250}alt={typeof(imagem.explanation) == 'string' ? imagem.explanation : ""}/>
           <p className="Ps">{imagem.explanation}</p>
         </div>
         
